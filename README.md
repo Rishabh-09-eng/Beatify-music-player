@@ -88,7 +88,11 @@ If no cover image is added, Beatify automatically uses a default cover image.
 
 ## 📸 Preview
 
-(Add screenshots here)
+### Desktop View
+![Desktop View](preview_desktop.png)
+
+### Mobile View
+![Mobile View](preview_mobile.png)
 
 ## ⭐ Status
 
