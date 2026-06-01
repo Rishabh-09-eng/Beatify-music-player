@@ -1,0 +1,45 @@
+[
+    {
+        "name": "Bairan",
+        "artist": "Sumit and anuj (Banjaare)",
+        "cover": "album1.jpg",
+        "file": "asset/songs/1.mp3"
+    },
+    {
+        "name": "Khat",
+        "artist": "Navjot Ahuja",
+        "cover": "album2.jpg",
+        "file": "asset/songs/2.mp3"
+    },
+    {
+        "name": "Starboy",
+        "artist": "The Weeknd",
+        "cover": "album3.jpg",
+        "file": "asset/songs/3.mp3"
+    },
+    
+    {
+        "name": "Shayad",
+        "artist": "Arijit Singh",
+        "cover": "album4.jpg",
+        "file": "asset/songs/4.mp3"
+    },
+    {
+        "name": "Boom Shaka",
+        "artist": "KR$NA",
+        "cover": "album5.jpg",
+        "file": "asset/songs/5.mp3"
+    },
+    {
+        "name": "Softly",
+        "artist": "Karan Aujla",
+        "cover": "album6.jpg",
+        "file": "asset/songs/6.mp3"
+    },
+    {
+        "name": "Desi Kalakaar",
+        "artist": "Yo Yo Honey Singh",
+        "cover": "album7.jpg",
+        "file": "asset/songs/7.mp3"
+    }
+]

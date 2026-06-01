@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beatify</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="left">
+
+            <div class="close-sidebar">
+                ✕
+            </div>
+
+            <div class="home">
+                <div class="brand">
+                    <span class="logo"><img src="asset/beatify_icon.svg" alt=""></span>
+                    <span class="name">Beatify</span>
+                </div>
+
+                <ul>
+                    <li><img src="asset/home.svg" alt="home">Home</li>
+                    <li><img src="asset/search.svg" alt="search">Search</li>
+                </ul>
+            </div>
+
+            <div class="library">
+
+                <div class="play-create">
+
+                    <div class="heading">
+                        <p>My Playlist</p>
+                        <img src="asset/playlist.svg" alt="playlist">
+                    </div>
+
+                </div>
+
+                <div class="library-content">
+
+                    <div class="playlist-list">
+
+                    </div>
+
+                    <div class="now-playing">
+                        <h4>Now Playing</h4>
+                        <div class="current-song">
+                            No Song Selected
+                        </div>
+                    </div>
+
+                    <button class="createplaylist">
+                        + Create Playlist
+                    </button>
+                    
+                </div>
+
+                <div class="footer">
+                    <div class="footer-links">
+                        <a href="#">About</a>
+                        <a href="#">Privacy</a>
+                        <a href="#">Cookies</a>
+                        <a href="#">Accessibility</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="right">
+
+            <div class="header">
+
+                <div class="hamburger">
+                    <img src="asset/hamburger.svg" alt="">
+                </div>
+                
+                <div class="button">
+                    <button>Signup</button>
+                    <button>Login</button>
+                </div>
+            </div>
+
+            <div class="playlist-section">
+                <div class="heading">
+                    <h2>Trending Songs</h2>
+                    <span>show all</span>
+                </div>
+
+                <div class="card-container">
+                    
+                </div>
+
+            </div>
+
+            <div class="playbar">
+                <div class="song-info">
+                    No Song Playing
+                </div>
+
+                <div class="song-time">
+                    0:00
+                </div>
+
+                <input type="range" value="0" class="progress-bar">
+
+                <div class="volume-control">
+                    <img src="asset/sound.svg" alt="volume">  
+                    <input type="range" min="0" max="1" step="0.1" value="1" class="volume-slider">
+                </div>
+
+                <div class="controls">  
+                    <button class="prev-btn">
+                        <img src="asset/prev.svg" alt="prev">
+                    </button>
+                    
+                    <button class="play-pause">
+                        <img src="asset/play.svg" alt="pause">
+                    </button>
+                    
+                    <button class="next-btn">
+                        <img src="asset/next.svg" alt="next">
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="popup-overlay hidden">
+
+    <div class="popup-box">
+
+        <h3>Create Playlist</h3>
+
+        <input
+        type="text"
+        class="playlist-input"
+        placeholder="Enter playlist name">
+
+        <button class="done-btn">
+            Done
+        </button>
+
+    </div>
+
+</div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
