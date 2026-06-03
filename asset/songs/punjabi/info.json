@@ -1,0 +1,26 @@
+[
+    {
+        "name": "3 peg",
+        "file": "asset/songs/punjabi/1p.mp3"
+    },
+    {
+        "name": "8 parche",
+        "file": "asset/songs/punjabi/2p.mp3"
+    },
+    {
+        "name": "Boyfriend",
+        "file": "asset/songs/punjabi/3p.mp3"
+    },
+    {
+        "name": "Daru badnaam",
+        "file": "asset/songs/punjabi/4p.mp3"
+    },
+    {
+        "name": "For a reason",
+        "file": "asset/songs/punjabi/5p.mp3"
+    },
+    {
+        "name": "Jhol",
+        "file": "asset/songs/punjabi/6p.mp3"
+    }
+]

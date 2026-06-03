@@ -18,18 +18,73 @@ const hamburger = document.querySelector(".hamburger");
 const sidebar = document.querySelector(".left"); 
 const closeSidebar = document.querySelector(".close-sidebar");
 const volumeSlider = document.querySelector(".volume-slider");
-const cardContainer = document.querySelector(".card-container");
+const playlistSections = document.querySelector(".playlist-sections");
+let songs = [];
+let currentSongs = [];
 
 
-async function loadSongs(){
+async function loadSongs(folder){
 
     const response =
     await fetch(
-        "asset/songs/info.json"
+        `asset/songs/${folder}/info.json`
     );
 
     const songs =
     await response.json();
+
+    if(songs.length === 0){
+        return;
+    }
+
+    const section =
+    document.createElement(
+        "div"
+    );
+
+    section.classList.add(
+        "playlist-section"
+    );
+
+    section.innerHTML =
+    `
+    <div class="heading">
+        <h2>
+            ${
+                folder
+                .replace("-", " ")
+                .replace(
+                    /\b\w/g,
+                    c => c.toUpperCase()
+                )
+            }
+        </h2>
+
+        <span>
+            show all
+        </span>
+    </div>
+
+    <div class=
+    "card-container">
+
+    </div>
+    `;
+
+    if(folder === "trending-songs"){
+        playlistSections
+        .prepend(section);
+    }
+
+    else{
+        playlistSections
+        .appendChild(section);
+    }
+
+    const cardContainer =
+    section.querySelector(
+        ".card-container"
+    );
 
     songs.forEach(
         (songData, index)=>{
@@ -45,14 +100,22 @@ async function loadSongs(){
                 alt="">
             </div>
 
-            <img src="asset/${songData.cover || "default-cover.png"}" alt="">
+            <img
+            src="asset/${
+                songData.cover ||
+                "default-cover.png"
+            }"
+            alt="">
 
             <h4>
                 ${songData.name}
             </h4>
 
             <p>
-                ${songData.artist || ""} 
+                ${
+                    songData.artist ||
+                    ""
+                }
             </p>
 
         </div>
@@ -61,7 +124,8 @@ async function loadSongs(){
     });
 
     const cards =
-    document.querySelectorAll(
+    cardContainer
+    .querySelectorAll(
         ".card"
     );
 
@@ -72,19 +136,21 @@ async function loadSongs(){
             "click",
             ()=>{
 
-                currentsong =
-                index;
 
-                song.src =
-                songs[index].file;
+                currentSongs = songs;
+
+                currentsong = index;
+
+                song.src = currentSongs[index].file;
 
                 song.play();
 
                 song_name.innerText =
-                songs[index].name;
+                currentSongs[index].name;
 
-                currentSongLibrary.innerText =
-                songs[index].name;
+                currentSongLibrary
+                .innerText =
+                currentSongs[index].name;
 
                 playPauseIcon.src =
                 "asset/pause.svg";
@@ -113,18 +179,11 @@ playPausebtn.addEventListener("click", ()=>{
 
 nextbtn.addEventListener(
     "click",
-    async ()=>{
-
-    const response =
-    await fetch(
-        "asset/songs/info.json"
-    );
-
-    const songs = await response.json();
+    ()=>{
 
     if(
         currentsong ===
-        songs.length - 1
+        currentSongs.length - 1
     ){
         return;
     }
@@ -132,15 +191,15 @@ nextbtn.addEventListener(
     currentsong++;
 
     song.src =
-    songs[currentsong].file;
+    currentSongs[currentsong].file;
 
     song.play();
 
     song_name.innerText =
-    songs[currentsong].name;
+    currentSongs[currentsong].name;
 
     currentSongLibrary.innerText =
-    songs[currentsong].name;
+    currentSongs[currentsong].name;
 
     playPauseIcon.src =
     "asset/pause.svg";
@@ -149,15 +208,7 @@ nextbtn.addEventListener(
 
 prevbtn.addEventListener(
     "click",
-    async ()=>{
-
-    const response =
-    await fetch(
-        "asset/songs/info.json"
-    );
-
-    const songs =
-    await response.json();
+    ()=>{
 
     if(currentsong === 0){
         return;
@@ -166,15 +217,15 @@ prevbtn.addEventListener(
     currentsong--;
 
     song.src =
-    songs[currentsong].file;
+    currentSongs[currentsong].file;
 
     song.play();
 
     song_name.innerText =
-    songs[currentsong].name;
+    currentSongs[currentsong].name;
 
     currentSongLibrary.innerText =
-    songs[currentsong].name;
+    currentSongs[currentsong].name;
 
     playPauseIcon.src =
     "asset/pause.svg";
@@ -307,4 +358,8 @@ volumeSlider.addEventListener("input",()=>{
         volumeSlider.value;
 })
 
-loadSongs();
+loadSongs("trending-songs");
+loadSongs("haryanvi");
+loadSongs("hindi");
+loadSongs("english");
+loadSongs("punjabi");
