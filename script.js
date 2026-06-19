@@ -247,6 +247,29 @@ song.addEventListener("timeupdate",()=>{
     songtime.innerText = `${minutes}:${seconds}`;
 })
 
+song.addEventListener("ended", () => {
+
+    if (currentsong != currentSongs.length - 1) {
+        currentsong++;
+    }
+    else {
+        currentsong = 0;
+    }
+    song.src =
+    currentSongs[currentsong].file;
+
+    song.play();
+
+    song_name.innerText =
+    currentSongs[currentsong].name;
+
+    currentSongLibrary.innerText =
+    currentSongs[currentsong].name;
+
+    playPauseIcon.src =
+    "asset/pause.svg";
+
+});
 
 
 progressbar.addEventListener("input",()=>{
